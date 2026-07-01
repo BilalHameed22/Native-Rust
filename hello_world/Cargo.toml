@@ -1,0 +1,23 @@
+[package]
+name = "hello_world"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+#"cdy-lib" produces the .so shared object the Solana runtime loads.
+#"lib" lets us also unit test this crate normally with "cargo test".
+
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+solana-program = "1.18.0"
+
+[dev-dependencies]
+solana-program-test = "1.18.0"
+solana-sdk = "1.18.0"
+tokio = {version= "1", features = ["full"]}
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
