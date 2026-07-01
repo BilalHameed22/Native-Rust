@@ -49,7 +49,7 @@ pub fn process_instruction(
             account.owner,
             account.lamports(),
             account.is_signer,
-            account.is_writeable
+            account.is_writable
 
         );
 
